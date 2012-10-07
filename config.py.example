@@ -4,6 +4,8 @@ mobileme_enabled = False
 mobileme_username = ''
 mobileme_password = ''
 
+upyun_enabled = False
+
 if os.environ['SERVER_SOFTWARE'] == 'Development/1.0':
     twitter_consumer_key = ''
     twitter_consumer_secret = ''
@@ -17,8 +19,8 @@ fts_username = ''
 fts_password = ''
 
 # change this for deploy is you can registration from http://www.google.com/recaptcha
-recaptcha_public_key = 'your recaptcha_public_key'
-recaptcha_private_key = 'your recaptcha_private_key'
+recaptcha_public_key = ''
+recaptcha_private_key = ''
 
 daydream_secret = ''
 

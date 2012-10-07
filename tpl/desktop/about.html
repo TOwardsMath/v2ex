@@ -8,18 +8,14 @@
         <div id="Rightbar">
             {% include 'rightbar/user.html' %}
             <div class="sep20"></div>
-            {% include 'rightbar/ads.html' %}
         </div>
         <div id="Content">
             <div class="box">
                 <div class="cell"><span class="fade"><a href="/">{{ site.title }}</a> <span class="chevron">&nbsp;›&nbsp;</span> About</span></div>
                 <div class="inner">
                     <div class="page">
-                        <h1>{{ note.title|escape }}</h1>
-                        <div class="sep10"></div>
-                        {{ note.body|linebreaksbr }}
-                        <div class="sep10"></div>
-                        <small class="snow">Last Revised {{ note.last_modified|date:"n/j, Y" }}</small>
+			<p><a href="www.v2enyo.com">V2ENYO</a> 是一个面向喜欢 enyo 和使用 enyo 的开发者的讨论社区。</p>
+			<p>在这里，你可以分享 enyo 开发的学习资料，可以提出在学习、开发 enyo 程序过程中遇到的问题。</p>
                     </div>
                 </div>
             </div>

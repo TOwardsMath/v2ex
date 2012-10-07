@@ -1,4 +1,6 @@
-# Project Babel 2
+# Project Babel 2（修改版）
+
+在搭建[V2ENYO](http://www.v2enyo.com)过程中，针对自己的需要，对原来的代码进行了修改，包括去掉一些广告和不需要的功能。
 
 Project Babel 2 is an open source software package for creating and supporting communities. It's written in Python and running on [Google App Engine](http://code.google.com/appengine), which is a free and robust cloud hosting infrastructure.
 

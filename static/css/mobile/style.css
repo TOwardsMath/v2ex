@@ -107,8 +107,8 @@ h1 {
 
 #Logo {
 	background-image: url("/static/img/logo.png");
-	width: 70px;
-	height: 20px;
+	width: 105px;
+	height: 23px;
 	margin-top: 2px;
 	margin-left: 0px;
 	cursor: pointer;
@@ -194,6 +194,20 @@ h1 {
 	font-size: 12px;
 	line-height: 14px;
 	border-bottom: 1px solid #ccc;
+}
+
+.cell table.hcate {
+	border: 0;
+}
+
+.cell table.hcate td {
+	line-height: 200%;
+	margin-right: 10px;
+	text-align: center;
+}
+
+.cell table.hcate td:first-child {
+	width: 80px;
 }
 
 .cell_bottom {

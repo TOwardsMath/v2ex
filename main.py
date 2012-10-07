@@ -181,10 +181,10 @@ class HomeHandler(webapp.RequestHandler):
             for category in categories:
                 category = category.strip()
                 i = i + 1
-                c = c + '<div class="cell"><table cellpadding="0" cellspacing="0" border="0"><tr><td align="right" width="60"><span class="fade">' + category + '</span></td><td style="line-height: 200%; padding-left: 10px;">'
+                c = c + '<div class="cell"><table class="hcate"><tr><td><span class="fade">' + category + '</span></td><td>'
                 qx = db.GqlQuery("SELECT * FROM Node WHERE category = :1 ORDER BY topics DESC", category)
                 for node in qx:
-                    c = c + '<a href="/go/' + node.name + '" style="font-size: 14px;">' + node.title + '</a>&nbsp; &nbsp; '
+                    c = c + '<a class="item_node" href="/go/' + node.name + '" style="font-size: 14px;">' + node.title + '</a>&nbsp; &nbsp; '
                 c = c + '</td></tr></table></div>'
                 memcache.set('index_categories', c, 86400)
         template_values['c'] = c
@@ -622,7 +622,7 @@ class ForgotHandler(webapp.RequestHandler):
                 mail_template_values['ip'] = self.request.remote_addr
                 path = os.path.join(os.path.dirname(__file__), 'tpl', 'mail', 'reset_password.txt')
                 output = template.render(path, mail_template_values)
-                result = mail.send_mail(sender="v2ex.livid@me.com",
+                result = mail.send_mail(sender="towardsmath@gmail.com",
                               to=one.email,
                               subject="=?UTF-8?B?" + base64.b64encode((u"[" + site.title + u"] 重新设置密码").encode('utf-8')) + "?=",
                               body=output)

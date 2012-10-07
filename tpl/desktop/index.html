@@ -4,20 +4,17 @@
     <div id="Wrapper">
     <div id="Main">
         <div id="Sidebar">
-            
         </div>
         <div id="Rightbar">
             {% include 'rightbar/user.html' %}
             <div class="sep20"></div>
-            <div class="box"><div class="cell"><div class="fr"><img src="/static/img/promoted.png" align="absmiddle" /> &nbsp;<a href="http://itunes.apple.com/cn/app/statspro-for-battlefield-3/id477644283?l=en&mt=8" target="_blank" class="dark">StatsPro</a> &nbsp;<small style="color: #ccc;">for Battlefield 3</small></div><span class="fade">{{ l10n.hottest_nodes }}</span></div><div class="inner" align="left">{{ index_hottest_sidebar }}</div>
+            <div class="box">
+                <div class="cell"><span class="fade">{{ l10n.hottest_nodes }}</span></div>
+                <div class="inner" align="left">{{ index_hottest_sidebar }}</div>
             </div>
-            <div class="sep20"></div>
-            {% include 'rightbar/latest_nodes.html' %}
             <div class="sep20"></div>
             {% include 'rightbar/stats.html' %}
             {% include 'rightbar/recent_nodes.html' %}
-            <div class="sep20"></div>
-            {% include 'rightbar/ads.html' %}
             <div class="sep20"></div>
             {% include 'rightbar/goodies.html' %}
         </div>

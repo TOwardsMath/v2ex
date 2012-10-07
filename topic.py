@@ -113,53 +113,7 @@ class NewTopicHandler(webapp.RequestHandler):
 
     def post(self, node_name):
         site = GetSite()
-        ### BEGIN: CAN CONTINUE
-        can_continue = True
-        if ('Host' in self.request.headers):
-            if (self.request.headers['Host'] not in ['www.v2ex.com', 'v2ex.appspot.com', 'fast.v2ex.com', 'beta.v2ex.com', 'us.v2ex.com', 'jp.v2ex.com', 'eu.v2ex.com', 'localhost:10000']):
-                can_continue = False
-        else:
-            can_continue = False
-        if ('User-Agent' not in self.request.headers):
-            can_continue = False
-        if ('Cookie' not in self.request.headers):
-            can_continue = False
-        if ('Referer' in self.request.headers):
-            has_v2ex = False
-            if ('http://localhost:10000' in self.request.headers['Referer']):
-                has_v2ex = True
-            if ('http://www.v2ex.com' in self.request.headers['Referer']):
-                has_v2ex = True
-            if ('http://v2ex.appspot.com' in self.request.headers['Referer']):
-                has_v2ex = True
-            if ('https://www.v2ex.com' in self.request.headers['Referer']):
-                has_v2ex = True
-            if ('http://jp.v2ex.com' in self.request.headers['Referer']):
-                has_v2ex = True
-            if ('http://eu.v2ex.com' in self.request.headers['Referer']):
-                has_v2ex = True
-            if ('http://us.v2ex.com' in self.request.headers['Referer']):
-                has_v2ex = True
-            if ('https://v2ex.appspot.com' in self.request.headers['Referer']):
-                has_v2ex = True
-            if ('http://fast.v2ex.com' in self.request.headers['Referer']):
-                has_v2ex = True
-            if ('http://beta.v2ex.com' in self.request.headers['Referer']):
-                has_v2ex = True
-            if ('http://' + str(site.domain) in self.request.headers['Referer']):
-                has_v2ex = True
-            if has_v2ex is False:
-                can_continue = False
-        else:
-            can_continue = False
-        if ('Content-Type' in self.request.headers):
-            if self.request.headers['Content-Type'].startswith( 'application/x-www-form-urlencoded') is False:
-                can_continue = False
-        else:
-            can_continue = False
-        if can_continue is False:
-            return self.redirect('http://' + site.domain + '/')
-        ### END: CAN CONTINUE
+        ### 删掉了continue代码段
         browser = detect(self.request)
         template_values = {}
         template_values['site'] = site
@@ -559,53 +513,7 @@ class TopicHandler(webapp.RequestHandler):
         
     def post(self, topic_num):
         site = GetSite()
-        ### BEGIN: CAN CONTINUE
-        can_continue = True
-        if ('Host' in self.request.headers):
-            if (self.request.headers['Host'] not in ['www.v2ex.com', 'v2ex.appspot.com', 'fast.v2ex.com', 'beta.v2ex.com', 'us.v2ex.com', 'eu.v2ex.com', 'jp.v2ex.com', 'localhost:10000']):
-                can_continue = False
-        else:
-            can_continue = False
-        if ('User-Agent' not in self.request.headers):
-            can_continue = False
-        if ('Cookie' not in self.request.headers):
-            can_continue = False
-        if ('Referer' in self.request.headers):
-            has_v2ex = False
-            if ('http://localhost:10000' in self.request.headers['Referer']):
-                has_v2ex = True
-            if ('http://www.v2ex.com' in self.request.headers['Referer']):
-                has_v2ex = True
-            if ('http://v2ex.appspot.com' in self.request.headers['Referer']):
-                has_v2ex = True
-            if ('https://www.v2ex.com' in self.request.headers['Referer']):
-                has_v2ex = True
-            if ('http://eu.v2ex.com' in self.request.headers['Referer']):
-                has_v2ex = True
-            if ('http://us.v2ex.com' in self.request.headers['Referer']):
-                has_v2ex = True
-            if ('http://jp.v2ex.com' in self.request.headers['Referer']):
-                has_v2ex = True
-            if ('https://v2ex.appspot.com' in self.request.headers['Referer']):
-                has_v2ex = True
-            if ('http://fast.v2ex.com' in self.request.headers['Referer']):
-                has_v2ex = True
-            if ('http://beta.v2ex.com' in self.request.headers['Referer']):
-                has_v2ex = True
-            if ('http://' + site.domain in self.request.headers['Referer']):
-                has_v2ex = True
-            if has_v2ex is False:
-                can_continue = False
-        else:
-            can_continue = False
-        if ('Content-Type' in self.request.headers):
-            if self.request.headers['Content-Type'].startswith( 'application/x-www-form-urlencoded') is False:
-                can_continue = False
-        else:
-            can_continue = False
-        if can_continue is False:
-            return self.redirect('http://' + site.domain + '/')
-        ### END: CAN CONTINUE
+       #删掉了continue代码片段
         browser = detect(self.request)
         template_values = {}
         template_values['site'] = site

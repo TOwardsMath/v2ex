@@ -43,15 +43,6 @@
         				{% if member_website_error %}
         				<li>{{ member_website_error_message }}</li>
         				{% endif %}
-        				{% if member_twitter_error %}
-        				<li>{{ member_twitter_error_message }}</li>
-        				{% endif %}
-        				{% if member_psn_error %}
-        				<li>{{ member_psn_error_message }}</li>
-        				{% endif %}
-        				{% if member_btc_error %}
-        				<li>{{ member_btc_error_message }}</li>
-        				{% endif %}
         				{% if member_github_error %}
         				<li>{{ member_github_error_message }}</li>
         				{% endif %}
@@ -118,42 +109,10 @@
         			    </tr>
         			    <tr>
         			        <td align="right">
-        			            {{ l10n.twitter }}
-        			        </td>
-        			        <td width="200" align="left">
-        			            <input type="text" class="sl" name="twitter" value="{{ member_twitter|escape }}" />
-        			        </td>
-        			    </tr>
-                        <tr>
-        			        <td align="right">
-        			            PSN ID
-        			        </td>
-        			        <td width="200" align="left">
-        			            <input type="text" class="sl" name="psn" value="{{ member_psn|escape }}" />
-        			        </td>
-        			    </tr>
-                        <tr>
-        			        <td align="right">
-        			            BTC Address
-        			        </td>
-        			        <td width="200" align="left">
-        			            <input type="text" class="sl" name="btc" value="{{ member_btc|escape }}" />
-        			        </td>
-        			    </tr>
-        			    <tr>
-        			        <td align="right">
         			            GitHub Username
         			        </td>
         			        <td width="200" align="left">
         			            <input type="text" class="sl" name="github" value="{{ member_github|escape }}" />
-        			        </td>
-        			    </tr>
-        			    <tr>
-        			        <td align="right">
-        			            自定义首页跳转位置
-        			        </td>
-        			        <td width="200" align="left">
-        			            <input type="text" class="sl" name="my_home" value="{{ member_my_home|escape }}" />
         			        </td>
         			    </tr>
                         <tr>
@@ -164,75 +123,8 @@
         			            {{ s }}
         			        </td>
         			    </tr>
-        			    <tr>
-        			        <td align="right">
-        			            {{ l10n.show_home_top }}
-        			        </td>
-        			        <td width="200" align="left">
-        			            <select name="show_home_top">
-        			            {% if member_show_home_top %}
-        			            <option value="1" selected="selected">{{ l10n.do_show }}</option>
-        			            <option value="0">{{ l10n.do_not_show }}</option>
-        			            {% else %}
-        			            <option value="1">{{ l10n.do_show }}</option>
-        			            <option value="0" selected="selected">{{ l10n.do_not_show }}</option>
-                                {% endif %}
-        			            </select>
-        			        </td>
-        			    </tr>
                         <tr>
-        			        <td align="right">
-        			            {{ l10n.show_quick_post }}
-        			        </td>
-        			        <td width="200" align="left">
-        			            <select name="show_quick_post">
-        			            {% if member_show_quick_post %}
-        			            <option value="1" selected="selected">{{ l10n.do_show }}</option>
-        			            <option value="0">{{ l10n.do_not_show }}</option>
-        			            {% else %}
-        			            <option value="1">{{ l10n.do_show }}</option>
-        			            <option value="0" selected="selected">{{ l10n.do_not_show }}</option>
-                                {% endif %}
-        			            </select>
-        			        </td>
-        			    </tr>
-        			    {% ifequal member.twitter_oauth 1 %}
-        			    <tr>
-        			        <td align="right">
-        			            <span class="small">Twitter Sync</span>
-        			        </td>
-        			        <td width="200" align="left">
-        			            {% ifequal member_twitter_sync 1 %}
-        			            <input type="checkbox" name="twitter_sync" checked="checked" />
-        			            {% else %}
-        			            <input type="checkbox" name="twitter_sync" />
-                                {% endifequal %}
-        			        </td>
-        			    </tr>
-        			    {% endifequal %}
-        			    <tr>
-        			        <td align="right">
-        			            <span class="small">Use My CSS</span>
-        			        </td>
-        			        <td width="200" align="left">
-        			            {% ifequal member_use_my_css 1 %}
-        			            <input type="checkbox" name="use_my_css" checked="checked" />
-        			            {% else %}
-        			            <input type="checkbox" name="use_my_css" />
-        			            {% endifequal %}
-        			        </td>
-        			    </tr>
-        			    <tr>
-        			        <td align="right">
-        			            <span class="small">My CSS</span>
-        			        </td>
-        			        <td width="200" align="left">
-        			            <textarea class="ml" name="my_css">{{ member_my_css|escape }}</textarea>
-        			        </td>
-        			    </tr>
-                        <tr>
-        			        <td align="right">
-        			        </td>
+        			        <td align="right"></td>
         			        <td width="200" align="left">
         			            <input type="submit" value="{{ l10n.save_settings }}" class="super normal button" />
         			        </td>
@@ -318,56 +210,6 @@
                 </div>
             </div>
             <div class="sep20"></div>
-            <div class="box">
-                <div class="cell"><span class="fade">Twitter</span></div>
-                <div class="cell">
-                    <table cellpadding="5" cellspacing="0" border="0">
-                        {% ifequal member.twitter_oauth 1 %}
-                        <tr>
-        			        <td width="120" align="right">
-        			            <img src="{{ member.twitter_profile_image_url }}" />
-        			        </td>
-        			        <td width="200" align="left">
-        			            {{ member.twitter_name }} <span class="fade">@<a href="http://twitter.com/{{ member.twitter_screen_name }}" target="_blank">{{ member.twitter_screen_name }}</a></span>
-        			            <div class="sep5"></div>
-        			            <span class="fade">
-        			            {{ member.twitter_statuses_count }} tweets
-        			            <div class="sep3"></div>
-        			            {{ member.twitter_followers_count }} followers, following {{ member.twitter_friends_count }}
-        			            </span>
-        			        </td>
-        			    </tr>
-        			    <tr>
-        			        <td align="right">
-        			        </td>
-        			        <td width="200" align="left">
-        			            <input type="submit" value="Unlink My Twitter Account" class="super normal button" onclick="location.href = '/twitter/unlink'" />
-        			        </td>
-        			    </tr>
-                        {% else %}
-                        <tr>
-        			        <td width="120" align="right">
-        			            {{ l10n.account_status }}
-        			        </td>
-        			        <td width="200" align="left">
-        			            <span class="fade">{{ l10n.twitter_not_linked }}</span>
-        			        </td>
-        			    </tr>
-        			    <tr>
-        			        <td align="right">
-        			        </td>
-        			        <td width="200" align="left">
-        			            <input type="submit" value="Link My Twitter Account" class="super normal button" onclick="location.href = '/twitter/link'" />
-        			        </td>
-        			    </tr>
-                        {% endifequal %}
-        			</table>
-                </div>
-                <div class="inner">
-                    {{ l10n.twitter_link_explained }}
-                </div>
-            </div>
-        </div>
     <div class="c"></div>
     </div>
     </div>

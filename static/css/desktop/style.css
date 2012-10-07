@@ -122,15 +122,7 @@ a.dark:hover {
 	margin: 0px auto 0px auto;
 }
 
-#Logo {
-	background-image: url("/static/img/logo_livid.png");
-	width: 88px;
-	height: 26px;
-	cursor: pointer;
-	float: left;
-	margin-top: 8px;
-	margin-left: 15px;
-}
+/* 此处删掉 #Logo 样式 */
 
 #Search {
 	margin: 0px 200px 0px 120px;
