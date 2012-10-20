@@ -34,7 +34,7 @@ Then you can rename *v2ex* to whatever you want to match your own App Engine App
 
 If you have any questions or feature requests, feel free to discuss it in official development node at V2EX:
 
-[http://v2ex.appspot.com/go/babel](http://v2ex.appspot.com/go/babel)
+[http://www.v2ex.com/go/babel](http://www.v2ex.com/go/babel)
 
 ## Troubleshooting
 
