@@ -1078,12 +1078,14 @@ class BackstageNewNodeHandler(webapp.RequestHandler):
                         counter = Counter()
                         counter.name = 'node.max'
                         counter.value = 1
+                    section.nodes = section.nodes + 1
                     node.num = counter.value
                     node.section_num = section.num
                     node.name = node_name
                     node.title = node_title
                     node.title_alternative = node_title_alternative
                     node.put()
+                    section.put()
                     counter.put()
                     memcache.delete('index_categories')
                     memcache.delete('home_nodes_new')
