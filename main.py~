@@ -54,6 +54,9 @@ class HomeHandler(webapp.RequestHandler):
         pass
         
     def get(self):
+        host = self.request.headers['Host']
+        if host == 'beta.v2ex.com':
+            return self.redirect('http://www.v2ex.com/')
         site = GetSite()
         browser = detect(self.request)
         template_values = {}
@@ -619,7 +622,7 @@ class ForgotHandler(webapp.RequestHandler):
                 mail_template_values['ip'] = self.request.remote_addr
                 path = os.path.join(os.path.dirname(__file__), 'tpl', 'mail', 'reset_password.txt')
                 output = template.render(path, mail_template_values)
-                result = mail.send_mail(sender=site.hostemail,
+                result = mail.send_mail(sender="towardsmath@gmail.com",
                               to=one.email,
                               subject="=?UTF-8?B?" + base64.b64encode((u"[" + site.title + u"] 重新设置密码").encode('utf-8')) + "?=",
                               body=output)

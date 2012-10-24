@@ -135,7 +135,7 @@ def GetSite():
             site = Site()
             site.num = 1
             site.title = 'V2EX'
-            site.domain = 'v2ex.appspot.com'
+            site.domain = ''
             site.slogan = 'way to explore'
             site.l10n = 'en'
             site.description = ''

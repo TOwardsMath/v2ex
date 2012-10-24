@@ -248,6 +248,7 @@ class Site(db.Model):
     slogan = db.StringProperty(required=False, indexed=False)
     description = db.TextProperty(required=False)
     domain = db.StringProperty(required=False, indexed=False)
+    hostemail = db.StringProperty(required=False, indexed=False)
     analytics = db.StringProperty(required=False, indexed=False)
     home_categories = db.TextProperty(required=False, indexed=False)
     meta = db.TextProperty(required=False, default='')

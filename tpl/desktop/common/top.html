@@ -26,13 +26,15 @@
         </div>
         <script type="text/javascript">
             var dispatch = function() {
-                q = document.getElementById("q");
-                if (q.value != "") {
-                    window.open('http://www.google.com/search?q=site:v2enyo.com/t%20' + q.value, "_blank");
-                    return false;
-                } else {
-                    return false;
+                if ("{{ site.domain }}" != "") {
+                    q = document.getElementById("q");
+                    if (q.value != "") {
+                        window.open('http://www.google.com/search?q=site:{{ site.domain }}/t%20' + q.value, "_blank");
+                    }
+                    } else {
+                    alert("请在 ‘后台/Backstage’ -> ‘站点管理/Site Setting’ 中填写 ‘域名/Domain‘");
                 }
+                return false;
             }
         </script>
         <div id="Search"><form onsubmit="return dispatch()"><!--<input type="text" class="search" maxlength="40" name="q" value="{{ q|escape }}" id="q" /><input type="submit" class="super normal button" value="Search" style="-moz-border-radius: 0px 5px 5px 0px; border: none;" />--><div style="width: 276px; height: 28px; background-image: url('/static/img/qbar.png'); background-repeat: no-repeat; display: inline-block;"><input type="text" maxlength="40" name="q" id="q" value="{{ q|escape }}" /></div></form></div>

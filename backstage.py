@@ -1714,6 +1714,10 @@ class BackstageSiteHandler(webapp.RequestHandler):
                     template_values['site_home_categories'] = site.home_categories
                 else:
                     template_values['site_home_categories'] = ''
+                if site.hostemail is not None:
+                    template_values['site_hostemail'] = site.hostemail
+                else:
+                    template_values['site_hostemail'] = ''
                 if site.analytics is not None:
                     template_values['site_analytics'] = site.analytics
                 else:
@@ -1856,6 +1860,8 @@ class BackstageSiteHandler(webapp.RequestHandler):
                 template_values['site_analytics'] = site_analytics
                 template_values['site_analytics_error'] = site_analytics_error
                 template_values['site_analytics_error_message'] = site_analytics_error_messages[site_analytics_error]
+                site_hostemail = self.request.get('hostemail').strip()
+                template_values['site_hostemail'] = site_hostemail
                 # Verification: l10n (required)
                 site_l10n = self.request.get('l10n').strip()
                 supported = GetSupportedLanguages()
@@ -1943,6 +1949,7 @@ class BackstageSiteHandler(webapp.RequestHandler):
                         site.home_categories = site_home_categories
                     if site_analytics != '':
                         site.analytics = site_analytics
+                    site.hostemail = site_hostemail
                     site.l10n = site_l10n
                     site.topic_view_level = site_topic_view_level
                     site.topic_create_level = site_topic_create_level
